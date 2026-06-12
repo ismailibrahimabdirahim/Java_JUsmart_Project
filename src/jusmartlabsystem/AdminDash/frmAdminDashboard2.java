@@ -17,6 +17,7 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
     public static int adminId;
     public static String adminRole;
     public static String adminEmail;
+    public static String adminName;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmAdminDashboard2.class.getName());
     public static boolean darkMode = false;
     
@@ -27,6 +28,9 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
      */
     public frmAdminDashboard2() {
         initComponents();
+         lblWelcome.setText(
+            adminName + " (" + adminRole + ")"
+    );
         DashboardAdminBtn.setBackground(new java.awt.Color(51,51,51));
         loadDashboardCounts();
         if(frmAdminDashboard2.darkMode){
@@ -169,20 +173,24 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         lblTotalPending = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         lblTotalFixed = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jPanel19 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         lblTotalReport = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         ExitBtn = new javax.swing.JButton();
         btnDarkMode = new javax.swing.JButton();
+        lblWelcome = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1922, 1030));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 255));
@@ -280,7 +288,7 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,33 +305,37 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Total Pending");
 
+        jButton6.setBackground(new java.awt.Color(255, 51, 51));
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addComponent(lblTotalPending, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 39, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(lblTotalPending, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(37, 37, 37))))
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(lblTotalPending)
-                .addGap(34, 34, 34))
+                .addGap(31, 31, 31)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        DashboardContents2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 160, 110));
+        DashboardContents2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 160, 110));
 
         jPanel11.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -350,17 +362,24 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Total fixed");
 
+        jButton7.setBackground(new java.awt.Color(51, 255, 0));
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(lblTotalFixed, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(lblTotalFixed, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, 45))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,7 +389,8 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTotalFixed)
-                .addGap(0, 36, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         DashboardContents2.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 160, 110));
@@ -400,20 +420,25 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Total Report");
 
+        jButton5.setBackground(new java.awt.Color(153, 153, 153));
+
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
                         .addComponent(lblTotalReport, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
                         .addComponent(jLabel9)
-                        .addGap(41, 41, 41))))
+                        .addGap(41, 41, 41))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16))))
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -423,10 +448,11 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblTotalReport)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        DashboardContents2.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 160, 110));
+        DashboardContents2.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 70, 160, 110));
 
         ExitBtn.setBackground(new java.awt.Color(51, 153, 255));
         ExitBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -443,6 +469,13 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
         btnDarkMode.addActionListener(this::btnDarkModeActionPerformed);
         DashboardContents2.add(btnDarkMode, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 10, 50, 30));
 
+        lblWelcome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(51, 153, 255));
+        DashboardContents2.add(lblWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
+
+        jLabel3.setText("Welcome ");
+        DashboardContents2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -454,8 +487,8 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(DashboardContents2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1030, Short.MAX_VALUE)
         );
 
         pack();
@@ -558,6 +591,10 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JButton ExitBtn;
     private javax.swing.JButton ManageReportAdminBtn;
     private javax.swing.JButton btnDarkMode;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -573,5 +610,6 @@ public class frmAdminDashboard2 extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalFixed;
     private javax.swing.JLabel lblTotalPending;
     private javax.swing.JLabel lblTotalReport;
+    private javax.swing.JLabel lblWelcome;
     // End of variables declaration//GEN-END:variables
 }

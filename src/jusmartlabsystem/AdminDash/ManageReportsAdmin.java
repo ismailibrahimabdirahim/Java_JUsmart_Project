@@ -24,6 +24,9 @@ public class ManageReportsAdmin extends javax.swing.JFrame {
      */
     public ManageReportsAdmin() {
         initComponents();
+ 
+        loadSubmittedProblems();
+
         tblProblemSubmitedStudents.setAutoResizeMode(
         javax.swing.JTable.AUTO_RESIZE_OFF);
         tblProblemSubmitedStudents.setRowHeight(32);
@@ -45,7 +48,6 @@ public class ManageReportsAdmin extends javax.swing.JFrame {
         tblProblemSubmitedStudents.getColumnModel().getColumn(9).setPreferredWidth(250);  // Description
         tblProblemSubmitedStudents.getColumnModel().getColumn(10).setPreferredWidth(100); // Status
         ManageReportAdminBtn.setBackground(new java.awt.Color(51,51,51));
-        loadSubmittedProblems();
         if(frmAdminDashboard2.darkMode){
         applyDarkMode();
 

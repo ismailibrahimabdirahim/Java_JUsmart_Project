@@ -6,6 +6,7 @@
 
 package jusmartlabsystem.FormLogin;
 import jusmartlabsystem.AdminDash.frmAdminDashboard2;
+import jusmartlabsystem.SuperAdminDash.frmSuperAdminDashboard2;
 import jusmartlabsystem.FormDB.DatabaseHelper;
 import java.sql.*;
 import java.awt.*;
@@ -28,6 +29,7 @@ public class frmLogin extends javax.swing.JFrame {
      * Creates new form frmLogin
      */
     public frmLogin() {
+        
         initComponents();
     }
 
@@ -53,6 +55,9 @@ public class frmLogin extends javax.swing.JFrame {
         LoginBtn = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         cmbRoles = new javax.swing.JComboBox<>();
+        ForgetPass = new javax.swing.JLabel();
+        changePass = new javax.swing.JLabel();
+        ShowPassCheckBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 255, 102));
@@ -99,13 +104,13 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         txtUserName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
-        jPanel2.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 190, 30));
+        jPanel2.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 190, 30));
 
         jLabel3.setText("Role : ");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
         txtPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
-        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 190, 30));
+        jPanel2.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 190, 30));
 
         ExitBtn.setBackground(new java.awt.Color(51, 153, 255));
         ExitBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -120,7 +125,7 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel2.add(ExitBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 50, 40));
 
         jLabel5.setText("Enter Your Email : ");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
         LoginBtn.setBackground(new java.awt.Color(51, 153, 255));
         LoginBtn.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -135,10 +140,45 @@ public class frmLogin extends javax.swing.JFrame {
         jPanel2.add(LoginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 360, 42));
 
         jLabel7.setText("Enter Your Password : ");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
-        cmbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Super Admin" }));
-        jPanel2.add(cmbRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 190, 30));
+        cmbRoles.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "SuperAdmin" }));
+        cmbRoles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cmbRolesMouseClicked(evt);
+            }
+        });
+        jPanel2.add(cmbRoles, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 190, 30));
+
+        ForgetPass.setBackground(new java.awt.Color(51, 153, 255));
+        ForgetPass.setFont(new java.awt.Font("Cascadia Code", 1, 12)); // NOI18N
+        ForgetPass.setForeground(new java.awt.Color(255, 51, 51));
+        ForgetPass.setText("Forget password!");
+        ForgetPass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ForgetPassMouseClicked(evt);
+            }
+        });
+        jPanel2.add(ForgetPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 410, -1, -1));
+
+        changePass.setBackground(new java.awt.Color(51, 153, 255));
+        changePass.setFont(new java.awt.Font("Cascadia Code", 1, 12)); // NOI18N
+        changePass.setForeground(new java.awt.Color(51, 153, 255));
+        changePass.setText("Change password? ");
+        changePass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changePassMouseClicked(evt);
+            }
+        });
+        jPanel2.add(changePass, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, -1, -1));
+
+        ShowPassCheckBox.setText("Show Password");
+        ShowPassCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowPassCheckBoxActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ShowPassCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,6 +236,37 @@ public class frmLogin extends javax.swing.JFrame {
              
              
     }//GEN-LAST:event_LoginBtnActionPerformed
+
+    private void cmbRolesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cmbRolesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbRolesMouseClicked
+
+    private void changePassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePassMouseClicked
+        // TODO add your handling code here:
+        frmChangePass frmChangePass = new frmChangePass();
+        frmChangePass.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_changePassMouseClicked
+
+    private void ForgetPassMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForgetPassMouseClicked
+        // TODO add your handling code here:
+        frmForgetPass frmForgetPass = new frmForgetPass();
+        frmForgetPass.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ForgetPassMouseClicked
+
+    private void ShowPassCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowPassCheckBoxActionPerformed
+        // TODO add your handling code here:
+        if(ShowPassCheckBox.isSelected()){
+
+            txtPassword.setEchoChar((char)0);
+           
+
+        }else{
+
+            txtPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_ShowPassCheckBoxActionPerformed
     
    
        
@@ -217,41 +288,63 @@ public class frmLogin extends javax.swing.JFrame {
         pst.setString(1, uname);
         pst.setString(2, pwd);
         pst.setString(3, role);
+        
+        System.out.println("Email = " + uname);
+        System.out.println("Password = " + pwd);
+        System.out.println("Role = " + role);
 
-        ResultSet rs = pst.executeQuery();
+ResultSet rs = pst.executeQuery();
 
-        if (rs.next()) {
+if(rs.next()){
+
+    String dbRole = rs.getString("Role");
+    if(dbRole.equalsIgnoreCase("Admin")){
+        
+        frmAdminDashboard2.adminName =
+                rs.getString("FullName");
 
         frmAdminDashboard2.adminId =
-        rs.getInt("AdminID");
+                rs.getInt("AdminID");
 
         frmAdminDashboard2.adminEmail =
-        rs.getString("Email");
+                rs.getString("Email");
 
         frmAdminDashboard2.adminRole =
-        rs.getString("Role");
+                dbRole;
 
-        frmAdminDashboard2 frmAdmindash =
-        new frmAdminDashboard2();
+        frmAdminDashboard2 adminDashboard =
+                new frmAdminDashboard2();
 
-        frmAdmindash.setVisible(true);
+        adminDashboard.setVisible(true);
 
         this.dispose();
 
-    } else {
+    }else if(dbRole.equalsIgnoreCase("SuperAdmin")){
+        
+        frmSuperAdminDashboard2.adminName =
+                rs.getString("FullName");
+        frmSuperAdminDashboard2.adminId =
+                rs.getInt("AdminID");
 
-        JOptionPane.showMessageDialog(
-            this,
-            "Invalid Email or Password!",
-            "Login Failed",
-            JOptionPane.ERROR_MESSAGE
-        );
+        frmSuperAdminDashboard2.adminEmail =
+                rs.getString("Email");
 
-        txtUserName.setText("");
-        txtPassword.setText("");
+        frmSuperAdminDashboard2.adminRole =
+                dbRole;
 
-        txtUserName.requestFocus();
+        frmSuperAdminDashboard2 superDashboard =
+                new frmSuperAdminDashboard2();
+
+        superDashboard.setVisible(true);
+
+        this.dispose();
     }
+
+}else{
+
+    JOptionPane.showMessageDialog(this,
+            "Invalid Email or Password");
+}
 
         rs.close();
         pst.close();
@@ -297,7 +390,10 @@ public class frmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ExitBtn;
+    private javax.swing.JLabel ForgetPass;
     private javax.swing.JButton LoginBtn;
+    private javax.swing.JCheckBox ShowPassCheckBox;
+    private javax.swing.JLabel changePass;
     private javax.swing.JComboBox<String> cmbRoles;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
